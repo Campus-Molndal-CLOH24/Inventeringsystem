@@ -9,12 +9,12 @@ namespace Inventeringsystem.Utill
 {
     public class Inventory
     {
-        List<Product> products;
+        private List<Product> products { get; set; }
 
         //konstruktor för att skapa en lista av produkter
         public Inventory()
         {
-            products = new List<Product>();
+            products = new List<Product>(); // Initialize the list
         }
 
         //metoder for att lägga till 
@@ -48,11 +48,17 @@ namespace Inventeringsystem.Utill
             }
         }
 
-        // Seach for a product by using seach algorithm()
-        public void SearchProduct(List<Product> products, string name) 
+        // Seach for a product by using linear search algorithm()
+        public int SearchProduct(string target)
         {
-            
-            
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].Name == target) // Name feom Product class
+                {
+                    return i;
+                }
+            }
+            return -1; // Return -1 if the product is not found
         }
         //updated quantity of a product
     }
