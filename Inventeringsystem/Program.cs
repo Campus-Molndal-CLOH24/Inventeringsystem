@@ -10,10 +10,19 @@ namespace Inventeringsystem
 
             //Inventory class
             Inventory inventory = new Inventory(); //skap objekt av klassen Inventory
+            /*
             inventory.AddProduct(new Product("Milk", "Milk from the farm", 10, 10.5)); //lägg till produkten i listan
             inventory.AddProduct(new Product("Havre Gryn", "Svenska farm", 50, 19.50));
             inventory.AddProduct(new Product("Bread", "Bread from the bakery", 20, 25.5));
-            inventory.AddProduct(new Product("Butter", "Butter from the farm", 30, 15.5));
+            inventory.AddProduct(new Product("Butter", "Butter from the farm", 30, 15.5)); 
+            */
+            List<Product> newProducts = new List<Product>
+            {
+                new Product("Havre Gryn", "Svenska farm", 50, 19.50),
+                new Product("Bread", "Bread from the bakery", 20, 25.5),
+                new Product("Bread", "Bread from the bakery", 20, 25.5)
+            };
+            inventory.AddProduct(newProducts);
             inventory.ShowProducts(); //print out all products
 
             inventory.RemoveProduct("Milk");//ta bort produkten från listan
@@ -21,7 +30,7 @@ namespace Inventeringsystem
             inventory.ShowProducts(); //print out all products 
 
             string target = "Havre Gryn";
-            int result = inventory.SearchProduct(target); 
+            int result = inventory.SearchProduct(target);
 
             if (result >= 0)
             {

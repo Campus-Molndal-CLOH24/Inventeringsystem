@@ -11,16 +11,16 @@ namespace Inventeringsystem.Utill
     {
         private List<Product> products { get; set; }
 
-        //konstruktor för att skapa en lista av produkter
+        //konstruktor för att skapa en lista av produkter and initialize the list
         public Inventory()
         {
-            products = new List<Product>(); // Initialize the list
+            products = new List<Product>(); 
         }
 
         //metoder for att lägga till 
-        public void AddProduct(Product product)
+        public void AddProduct(List<Product> NewProduct)
         {
-            products.Add(product);
+            products.AddRange(NewProduct);
         }
 
         //ta bort en produkt
