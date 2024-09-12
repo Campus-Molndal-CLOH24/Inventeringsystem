@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -69,17 +70,29 @@ namespace Inventeringsystem.Utill
             }
         }
 
-        // Seach for a product by using linear search algorithm()
-        public int SearchProduct(string target)
+        // Seach for a product by using binary search algorithm() , searching ny name. 
+        public static int SearchProduct(List<Product> products, string target)
         {
-            for (int i = 0; i < products.Count; i++)
+            int left = 0;
+            int right = products.Count - 1;
+            while (left <= right)
             {
-                if (products[i].Name == target) // Name feom Product class
+                int middle = (left + right) / 2; // Corrected calculation
+                // Check if target is present at mid
+                if (products[middle].Name == target) //if the target is found return the index of the target
                 {
-                    return i;
+                    return middle;
+                }
+                else if (string.Compare(products[middle].Name, target) < 0)
+                {
+                    left = middle + 1; // If target greater, ignore left half
+                }
+                else
+                {
+                    right = middle - 1; // If target is smaller, ignore right
                 }
             }
-            return -1; // Return -1 if the product is not found
+            return -1;
         }
         //updated quantity of a product
     }
