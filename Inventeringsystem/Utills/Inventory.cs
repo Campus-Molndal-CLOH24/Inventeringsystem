@@ -48,6 +48,27 @@ namespace Inventeringsystem.Utill
             }
         }
 
+        //sortera produkter efter namn
+        public void SortProducts(List<Product> products)
+        {
+            for (int i = 0; i < products.Count; i++)
+            {
+                // assign the middle element of the array to the min variable
+                int min = i;
+                for (int j = i + 1; j < products.Count; j++)
+                {
+                    if (products[j].Price < products[min].Price)
+                    {
+                        min = j;
+                    }
+                }
+                //Swap the found minimum element with the first element from products class
+                Product temp = products[i];
+                products[i] = products[min];
+                products[min] = temp;
+            }
+        }
+
         // Seach for a product by using linear search algorithm()
         public int SearchProduct(string target)
         {
