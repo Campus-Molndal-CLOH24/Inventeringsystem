@@ -57,14 +57,16 @@ namespace Inventeringsystem.Utill
         //sortera produkter efter price
         public void SortProducts()
         {
+            
             for (int i = 0; i < products.Count; i++)
             {
                 // assign the middle element of the array to the min variable
                 int min = i;
                 for (int j = i + 1; j < products.Count; j++)
                 {
-                    if (products[j].Price < products[min].Price)
+                    if (string.Compare(products[j].Name, products[min].Name) < 0)
                     {
+                        
                         min = j;
                     }
                 }
@@ -73,6 +75,7 @@ namespace Inventeringsystem.Utill
                 products[i] = products[min];
                 products[min] = temp;
             }
+            
         }
 
         // Seach for a product by using binary search algorithm() , searching by name. 
@@ -82,7 +85,7 @@ namespace Inventeringsystem.Utill
             SortProducts();
 
             // Convert target to lowercase for case-insensitive search
-            target = target.ToLower();
+            
             int left = 0;
             int right = products.Count - 1;
             while (left <= right)

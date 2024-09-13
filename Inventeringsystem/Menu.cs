@@ -96,8 +96,8 @@ namespace Inventeringsystem
             Console.WriteLine("Ange produktnamn som du vill söka efter : ");
             string target = Console.ReadLine();
             //ensure it sorteing before searching
-            inventory.SortProducts(inventory.GetProducts());
-            int index = inventory.SearchProduct(inventory.GetProducts(), target);
+            inventory.SortProducts();
+            int index = inventory.SearchProduct(target);
             if (index == -1)
             {
                 Console.WriteLine("Produkt hittades inte.");
@@ -110,7 +110,7 @@ namespace Inventeringsystem
 
         private void SortProducts()
         {
-            inventory.SortProducts(inventory.GetProducts());
+            inventory.SortProducts();
             Console.WriteLine($"Produkter har sorterats. : ");
             foreach (var product in inventory.GetProducts())
             {
