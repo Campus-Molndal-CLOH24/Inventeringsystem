@@ -19,16 +19,6 @@ namespace Inventeringsystem.Data
             this.Amount = amount;
             this.Price = price;
         }
-
-        //updated amoung  of a product 
-        public void UpdateAmount(int AdditionAmount)
-        {
-            if (AdditionAmount < 0)
-            {
-                throw new ArgumentException("Amount can not be negative");
-            }
-            Amount += AdditionAmount;
-        }
     }
 
 }

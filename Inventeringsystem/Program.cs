@@ -60,10 +60,10 @@ namespace Inventeringsystem
             Console.WriteLine("Ange Produkt : ");
             string name = Console.ReadLine();
             Console.WriteLine("Ange Amoung : ");
-            int amount = int.Parse(Console.ReadLine()); //omvandla string till int
+            int amount = int.Parse(Console.ReadLine()); 
             Console.WriteLine("Ange Pris : ");
             double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); //omvandla string till double med hjälp av CultureInfo.InvariantCulture for att undvika problem med decimaler
-
+            //skapa ett nytt objekt av klassen product
             product newProduct = new product(name, amount, price);
             inventory.AddProduct(new List<product> { newProduct });
             Console.WriteLine("Produkt hat lagt till.");

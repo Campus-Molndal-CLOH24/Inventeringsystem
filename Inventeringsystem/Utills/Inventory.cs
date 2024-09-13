@@ -83,7 +83,7 @@ namespace Inventeringsystem.Utill
             int right = products.Count - 1;
             while (left <= right)
             {
-                int middle = left + (left - right) / 2; // Corrected calculation
+                int middle = left + (right - left) / 2; // Corrected calculation
                 // Check if target is present at midle
                 if (products[middle].Name == target) //if the target is found return the index of the target
                 {
