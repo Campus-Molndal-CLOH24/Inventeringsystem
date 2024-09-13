@@ -10,16 +10,16 @@ namespace Inventeringsystem.Utill
 {
     public class Inventory
     {
-        private List<Product> products { get; set; }
+        private List<product> products { get; set; }
 
         //konstruktor för att skapa en lista av produkter and initialize the list
         public Inventory()
         {
-            products = new List<Product>(); 
+            products = new List<product>(); 
         }
 
         //metoder for att lägga till 
-        public void AddProduct(List<Product> NewProduct)
+        public void AddProduct(List<product> NewProduct)
         {
             products.AddRange(NewProduct);
         }
@@ -50,7 +50,7 @@ namespace Inventeringsystem.Utill
         }
 
         //sortera produkter efter namn
-        public void SortProducts(List<Product> products)
+        public void SortProducts(List<product> products)
         {
             for (int i = 0; i < products.Count; i++)
             {
@@ -64,21 +64,21 @@ namespace Inventeringsystem.Utill
                     }
                 }
                 //Swap the found minimum element with the first element from products class
-                Product temp = products[i];
+                product temp = products[i];
                 products[i] = products[min];
                 products[min] = temp;
             }
         }
 
-        // Seach for a product by using binary search algorithm() , searching ny name. 
-        public static int SearchProduct(List<Product> products, string target)
+        // Seach for a product by using binary search algorithm() , searching by name. 
+        public static int SearchProduct(List<product> products, string target)
         {
             int left = 0;
             int right = products.Count - 1;
             while (left <= right)
             {
                 int middle = (left + right) / 2; // Corrected calculation
-                // Check if target is present at mid
+                // Check if target is present at midle
                 if (products[middle].Name == target) //if the target is found return the index of the target
                 {
                     return middle;
@@ -94,6 +94,7 @@ namespace Inventeringsystem.Utill
             }
             return -1;
         }
-        //updated quantity of a product
+        
+
     }
 }

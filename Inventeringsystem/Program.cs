@@ -12,11 +12,11 @@ namespace Inventeringsystem
             Inventory inventory = new Inventory(); //skap objekt av klassen Inventory
 
             //add products to the list
-            List<Product> newProducts = new List<Product>
+            List<product> newProducts = new List<product>
                 {
-                    new Product("Havre Gryn", "Svenska farm", 50, 19.50),
-                    new Product("Bread", "Bread from the bakery", 20, 25.5),
-                    new Product("Water", "From Alp , Italy", 20, 21.9)
+                    new product("Havre Gryn", "Svenska farm", 50, 19.50),
+                    new product("Bread", "Bread from the bakery", 20, 25.5),
+                    new product("Water", "From Alp , Italy", 20, 21.9)
                 };
             inventory.AddProduct(newProducts);
             inventory.ShowProducts(); //print out all products to test if they are added to the list.
@@ -46,6 +46,11 @@ namespace Inventeringsystem
             {
                 Console.WriteLine("Product not found");
             }
+
+            //updated amount of a product
+            Console.WriteLine("**********Uppdatera mängden av en produkt********");
+            newProducts[0].UpdateAmount(10); //acess the first product in the list and update the amount of the product.
+            inventory.ShowProducts(); //print out all products to show how many products are left after updating the amount of a product.
         }
     }
 }
