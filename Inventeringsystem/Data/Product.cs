@@ -9,17 +9,15 @@ namespace Inventeringsystem.Data
     public class product
     {//klass variabler
         public string Name { get; set; }
-        public string Description { get; set; }
         public int Amount { get; set; }
         public double Price { get; set; }
 
         // Constructor for each products
-        public product(string name, string description, int amount, double price)
+        public product(string name, int amount, double price)
         {
             this.Name = name;
-            Description = description;
-            Amount = amount;
-            Price = price;
+            this.Amount = amount;
+            this.Price = price;
         }
 
         //updated amoung  of a product 

@@ -17,6 +17,11 @@ namespace Inventeringsystem.Utill
         {
             products = new List<product>(); 
         }
+        //becuase the products is private we need to create a method to get the products list.
+        public List<product> GetProducts()
+        {
+            return products;
+        }
 
         //metoder for att lägga till 
         public void AddProduct(List<product> NewProduct)
@@ -45,11 +50,11 @@ namespace Inventeringsystem.Utill
         {
             foreach (var product in products)
             {
-                Console.WriteLine($"Name: {product.Name}, Description: {product.Description}, Quantity: {product.Amount}, Price: {product.Price}");
+                Console.WriteLine($"Name: {product.Name}, Quantity: {product.Amount}, Price: {product.Price}");
             }
         }
 
-        //sortera produkter efter namn
+        //sortera produkter efter price
         public void SortProducts(List<product> products)
         {
             for (int i = 0; i < products.Count; i++)
@@ -83,7 +88,7 @@ namespace Inventeringsystem.Utill
                 {
                     return middle;
                 }
-                else if (string.Compare(products[middle].Name, target) < 0)
+                else if (string.Compare(products[middle].Name, target) < 0) // Convert both to lowercase to handle case-insensitive comparison
                 {
                     left = middle + 1; // If target greater, ignore left half
                 }
