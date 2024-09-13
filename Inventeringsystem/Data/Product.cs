@@ -7,14 +7,14 @@ using Inventeringsystem.Utill;
 
 namespace Inventeringsystem.Data
 {
-    public class product
+    public class Product
     {//klass variabler
         public string Name { get; set; }
         public int Amount { get; set; }
         public double Price { get; set; }
 
         // Constructor for each products
-        public product(string name, int amount, double price)
+        public Product(string name, int amount, double price)
         {
             this.Name = name;
             this.Amount = amount;
