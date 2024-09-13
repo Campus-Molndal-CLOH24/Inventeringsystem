@@ -19,6 +19,8 @@ This project started as an assignment that we needed to submit to our professor.
 
 # Class diagram 
 
+![Untitled_Artwork](https://github.com/user-attachments/assets/5afd37ef-ad2a-4f6b-a17e-807085b63395)
+
 # Class struture
 - *Main Handles the user interface and menu interactions.
 - *Product*: Represents individual products with properties like Name, Price, and Amount.
