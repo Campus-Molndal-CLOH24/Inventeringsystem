@@ -21,7 +21,7 @@ namespace Inventeringsystem
                 Console.WriteLine("3. Visa alla produkt");
                 Console.WriteLine("4. Sök efter produkt");
                 Console.WriteLine("5. Sortera produkt");
-                Console.WriteLine("6. Ansluta");
+                Console.WriteLine("6. Avsluta");
                 Console.Write("Välja alternativ : ");
 
                 //läsa in användarens val
@@ -85,9 +85,10 @@ namespace Inventeringsystem
         static void SearchProduct(Inventory inventory)
         {
             Console.WriteLine("Ange produktnamn som du vill söka efter : ");
-            string name = Console.ReadLine();
+            string target = Console.ReadLine();
+            //ensure it sorteing before searching
             inventory.SortProducts(inventory.GetProducts());
-            int index = Inventory.SearchProduct(inventory.GetProducts(), name);
+            int index = inventory.SearchProduct(inventory.GetProducts(), target);
             if (index == -1)
             {
                 Console.WriteLine("Produkt hittades inte.");
@@ -97,10 +98,15 @@ namespace Inventeringsystem
                 Console.WriteLine($"Produkt hittades på index {index}");
             }
         }
+
         static void SortProducts(Inventory inventory)
         {
             inventory.SortProducts(inventory.GetProducts());
-            Console.WriteLine("Produkter har sorterats.");
+            Console.WriteLine($"Produkter har sorterats. : ");
+            foreach (var product in inventory.GetProducts())
+            {
+                Console.WriteLine($"Name: {product.Name}, Quantity: {product.Amount}, Price: {product.Price}");
+            }
         }
     }
 }

@@ -76,13 +76,14 @@ namespace Inventeringsystem.Utill
         }
 
         // Seach for a product by using binary search algorithm() , searching by name. 
-        public static int SearchProduct(List<product> products, string target)
+        public int SearchProduct(List<product> products, string target)
         {
+            
             int left = 0;
             int right = products.Count - 1;
             while (left <= right)
             {
-                int middle = (left + right) / 2; // Corrected calculation
+                int middle = left + (left - right) / 2; // Corrected calculation
                 // Check if target is present at midle
                 if (products[middle].Name == target) //if the target is found return the index of the target
                 {
