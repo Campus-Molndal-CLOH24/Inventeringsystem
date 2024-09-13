@@ -30,14 +30,16 @@ namespace Inventeringsystem.Utill
         }
 
         //ta bort en produkt
+        //använder vilkor om det finns ingen produkt här returnera null, no action needed.
+        //annas kör man en foreach loop för att hitta produkten sen ta bort den från listan
+        // använder if satsen om  user uppger namnet med stora bokstäver så konvertera det till små bokstäver
+        //then ta bort produkten från listan.
         public void RemoveProduct(string name)
         {
-            //om det finns ingen produkt här returnera null
             if (products == null) return;
-            //annas kör man en foreach loop för att hitta produkten sen ta bort den från listan
             foreach (var product in products)
             {
-                if (product.Name == name) // om user uppger namnet med stora bokstäver så konvertera det till små bokstäver
+                if (product.Name == name) 
                 {
                     products.Remove(product);
                     break;
@@ -54,23 +56,26 @@ namespace Inventeringsystem.Utill
             }
         }
 
-        //sortera produkter efter price
+        //sortera produkter efter name
+        // Yttre loop för att gå igenom varje produkt i listan.
+        // Anta att första elementet är det minsta
+        // Inre loop för att jämföra varje produkt med varandra.
+        // Jämför produktnamn (case-sensitive)
         public void SortProducts()
         {
             
             for (int i = 0; i < products.Count; i++)
             {
-                // assign the middle element of the array to the min variable
                 int min = i;
                 for (int j = i + 1; j < products.Count; j++)
                 {
                     if (string.Compare(products[j].Name, products[min].Name) < 0)
                     {
                         
-                        min = j;
+                        min = j; // Uppdatera index för den minsta produkten
                     }
                 }
-                //Swap the found minimum element with the first element from products class
+                //Byt plats på den minsta funna produkten och den aktuella produkten.
                 Product temp = products[i];
                 products[i] = products[min];
                 products[min] = temp;
@@ -78,21 +83,18 @@ namespace Inventeringsystem.Utill
             
         }
 
-        // Seach for a product by using binary search algorithm() , searching by name. 
+        // Metod för att söka efter en produkt med hjälp av en binär sökning baserad på namn 
         public int SearchProduct(string target)
         {
-            // Ensure the list is sorted before searching
+            // Se till att listan är sorterad innan sökning
             SortProducts();
-
-            // Convert target to lowercase for case-insensitive search
-            
             int left = 0;
             int right = products.Count - 1;
             while (left <= right)
             {
-                int middle = left + (right - left) / 2; 
-                // Check if target is present at midle
-                 // Convert product name to lowercase for case-insensitive comparison
+                // Hitta mittenindex
+                int middle = left + (right - left) / 2;
+                // Konvertera mittenproduktens namn till små bokstäver för att undvika skillnader i versaler/gemeneon
                 string middleName = products[middle].Name.ToLower();
 
                 if (middleName == target) //if the target is found return the index of the target

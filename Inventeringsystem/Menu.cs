@@ -71,8 +71,9 @@ namespace Inventeringsystem
             Console.WriteLine("Ange Amoung : ");
             int amount = int.Parse(Console.ReadLine());
             Console.WriteLine("Ange Pris : ");
-            double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); //omvandla string till double med hjälp av CultureInfo.InvariantCulture for att undvika problem med decimaler
-                                                                                           //skapa ett nytt objekt av klassen product
+            //omvandla string till double med hjälp av CultureInfo.InvariantCulture for att undvika problem med decimaler
+            double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); 
+            //skapa ett nytt objekt av klassen product                                                                               
             Product newProduct = new Product(name, amount, price);
             inventory.AddProduct(new List<Product> { newProduct });
             Console.WriteLine("Produkt hat lagt till.");
@@ -85,12 +86,12 @@ namespace Inventeringsystem
             inventory.RemoveProduct(name);
             Console.WriteLine("Produkt har tagits bort.");
         }
-
+        //Show Products
         private void ShowProducts()
         {
             inventory.ShowProducts();
         }
-
+        //Search method 
         private void SearchProduct()
         {
             Console.WriteLine("Ange produktnamn som du vill söka efter : ");
@@ -107,7 +108,7 @@ namespace Inventeringsystem
                 Console.WriteLine($"Produkt hittades på index {index}");
             }
         }
-
+        // sorting product by name
         private void SortProducts()
         {
             inventory.SortProducts();
